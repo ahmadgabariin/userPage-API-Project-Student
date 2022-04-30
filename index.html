@@ -12,6 +12,58 @@
 </head>
 
 <body>
+
+    <script id="user-info-template" type="text/x-handlebars-template">    
+        
+        <div class="main-user-info-div">
+            <img id="profile-pic" src="{{picture.large}}"/>
+            <div class="user-info">
+                <span class="first-last-name">{{name.first}} {{name.last}} </span>
+                <span class="city-state">{{location.city}}  , {{location.state}}</span>
+            </div>
+        </div>
+
+        
+    </script>
+
+    <script id="friends-names-template" type="text/x-handlebars-template">
+        <ul class="friends-list">  
+            
+        </ul>
+    </script>  
+
+    <script id="friends-names-list-template" type="text/x-handlebars-template">
+        {{#each freinds}}
+            <li>{{name.first}} {{name.last}}</li>
+        {{/each}}
+    </script>
+
+    <script id="qoute-content" type="text/x-handlebars-template">
+        <span>Favorite quote : </span>
+        <p>"{{quote}}."</p>
+        <p>- {{author}}</p>
+    </script>
+
+    <script id="pokemon-template" type="text/x-handlebars-template" >
+        <img src="{{imgsURL}}" id="pokemon-image"> <span id="pokemon-text"> Favorite Pokemon: {{loud name}}</span>
+    </script>
+
+    <script id="meat-text-template" type="text/x-handlebars-template" >
+        <div>
+            <p class="about-me">About me :</p>
+            <p class="meat-text">{{meatText}}</p>
+        </div>
+    </script>
+
+    <script id="saved-users-template" type="text/x-handlebars-template" >
+        {{#each savedUsers}}
+        <option value = {{this}}>{{this}}</option>
+        {{/each}}
+    </script>
+
+
+
+
     <div class="container">	
         <div class="user-container"></div>	
         <div class="quote-container"></div>	
@@ -19,16 +71,25 @@
             <div class="pokemon-container"></div>	
             <div class="meat-container"></div>	
         </div>	
-        <div class="friends">	
+        <div class="friends">
+    
             <h4>Friends</h4>	
             <div class="friends-container">	
             </div>	
         </div>	
         <div class="buttons">	
-            <button>Load User Data</button>	
-            <button>Display User</button>	
+            <button id="btn_load_data">Load User Data</button>	
+            <button id="btn_display_user">Display User</button>	
+            <button id="btn-save-user-page">Save User Page</button>	
+            <button id="btn-load-user-page">Load User Page</button>	
+            <select id="drop-down-users"></select>
         </div>	
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+<script src="jquery.js"></script>
+<script src="APIManager.js"></script>
+<script src="Renderer.js"></script>
+<script src="main.js"></script>
 
 </html>
